@@ -185,53 +185,53 @@ def main_loop():
 		clock.tick(FPS)
 
 
-if __name__ == "__main__":
-	# Initialize the pygame
-	pygame.init()
-	
-	# Create the screen
-	screen = pygame.display.set_mode((WIDTH, HEIGHT))
-	pygame.display.set_caption("Space Invaders")
-	icon = pygame.image.load("ufo.png")
-	pygame.display.set_icon(icon)
+#if __name__ == "__main__":
+# ===== Initialize the pygame =====
+pygame.init()
 
-	# Score Text
-	font = pygame.font.Font('freesansbold.ttf', 32)
+# Create the screen
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Space Invaders")
+icon = pygame.image.load("ufo.png")
+pygame.display.set_icon(icon)
 
-	lives_font = pygame.font.Font('freesansbold.ttf', 16)
-	
-	# Background
-	background = pygame.image.load("background.png")
+# Score Text
+font = pygame.font.Font('freesansbold.ttf', 32)
 
-	# Background music
-	mixer.music.load("background.wav")
-	mixer.music.play(-1)
+lives_font = pygame.font.Font('freesansbold.ttf', 16)
 
-	# Collision Sound
-	collision_sound = mixer.Sound("explosion.wav")
+# Background
+background = pygame.image.load("background.png")
 
-	# Bullet Sound
-	bullet_sound = mixer.Sound("laser.wav")
+# Background music
+mixer.music.load("background.wav")
+mixer.music.play(-1)
 
-	# Game Over Text
-	over_font = pygame.font.Font('freesansbold.ttf', 64)
+# Collision Sound
+collision_sound = mixer.Sound("explosion.wav")
 
-	player = Player()
-	bullet = Bullet()
+# Bullet Sound
+bullet_sound = mixer.Sound("laser.wav")
 
-	enemies = []
+# Game Over Text
+over_font = pygame.font.Font('freesansbold.ttf', 64)
 
-	clock = pygame.time.Clock()
+player = Player()
+bullet = Bullet()
 
-    # set number of enemies
-	num_of_enemies = 7
+enemies = []
 
-	for i in range(num_of_enemies):
-		enemy = Alien()
-		enemy.x = random.randint(0, 735)
-		enemy.y = random.randint(50, 250)
-		enemies.append(enemy)
-	
-	main_loop()
+clock = pygame.time.Clock()
 
-	pygame.quit()
+# set number of enemies
+num_of_enemies = 7
+
+for i in range(num_of_enemies):
+	enemy = Alien()
+	enemy.x = random.randint(0, 735)
+	enemy.y = random.randint(50, 250)
+	enemies.append(enemy)
+
+main_loop()
+
+pygame.quit()
