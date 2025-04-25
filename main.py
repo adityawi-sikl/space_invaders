@@ -8,8 +8,7 @@ FPS = 60
 WIDTH = 800
 HEIGHT = 600
 
-# Player
-
+# Player Object
 class Player(object):
 	def __init__(self):
 		self.img = pygame.image.load("player.png")
@@ -52,18 +51,14 @@ def game_over():
 	text = over_font.render("GAME OVER", True, (255, 255, 255))
 	screen.blit(text, (200, 200))
 
-
 def draw_player(img, x, y):
 	screen.blit(img, (x, y))
-
  
 def draw_alien(img, x, y):
 	screen.blit(img, (x, y))
 
-
 def draw_bullet(img, x, y):
 	screen.blit(img, (x, y))
-
 
 def is_collision(a, b):
 	distance = math.sqrt((math.pow(a.x - b.x, 2)) + (math.pow(a.y - b.y, 2)))
@@ -228,7 +223,8 @@ if __name__ == "__main__":
 
 	clock = pygame.time.Clock()
 
-	num_of_enemies = 6
+    # set number of enemies
+	num_of_enemies = 5
 
 	for i in range(num_of_enemies):
 		enemy = Alien()
