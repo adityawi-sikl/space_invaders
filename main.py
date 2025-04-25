@@ -224,7 +224,7 @@ if __name__ == "__main__":
 	clock = pygame.time.Clock()
 
     # set number of enemies
-	num_of_enemies = 5
+	num_of_enemies = 7
 
 	for i in range(num_of_enemies):
 		enemy = Alien()
