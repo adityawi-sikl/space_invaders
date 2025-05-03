@@ -1,44 +1,52 @@
+#===== START AWAL =====
 import pygame
 from pygame import mixer
 
 import random
 import math
 
+#===== iNITIALIZE =====
 FPS = 60
 WIDTH = 800
 HEIGHT = 600
 
-# Player Object
+#===== LOAD ASSETS =====
+asset_player = pygame.image.load("player.png")
+asset_alien = pygame.image.load("alien.png")
+asset_bullet = pygame.image.load("bullet.png")
+asset_background = pygame.image.load("background.png")
+
+
+#===== Player Object
 class Player(object):
 	def __init__(self):
-		self.img = pygame.image.load("player.png")
+		self.img = asset_player
 		self.x = 370
 		self.y = 480
 		self.x_change = 0
 		self.y_change = 0
 		self.lives = 3
 
-# Enemy
+#===== Enemy Object
 class Alien(object):
 	def __init__(self):
-		self.img = pygame.image.load("alien.png")
+		self.img = asset_alien
 		self.x = 0
 		self.y = 50
 		self.x_change = 5
 		self.y_change = 10
 
-
-# Bullet
+#===== Bullet Object
 class Bullet(object):
 	def __init__(self):
-		self.img = pygame.image.load("bullet.png")
+		self.img = asset_bullet
 		self.x = 0
 		self.y = 496
 		self.x_change = 0
 		self.y_change = 20
 		self.state = "ready"
 
-
+#===== Utility Functions =====
 def show_score(x, y, score_value):
 	score = font.render("Score : " + str(score_value), True, (255, 255, 255))
 	screen.blit(score, (x, y))
@@ -66,10 +74,8 @@ def is_collision(a, b):
 		return True
 	else:
 		return False
-
-
+#===== FUNCTION MAIN LOOP =====
 def main_loop():
-
 	score_value = 0
 	# Game loop
 	running = True
@@ -79,6 +85,8 @@ def main_loop():
 		screen.fill((0, 0, 0))
 		screen.blit(background, (0, 0))
 
+		screen.blit(font.render("TEST TEXT", True, (102, 153, 255)), (150, 150))
+		
 		for event in pygame.event.get():
 			if (event.type == pygame.QUIT):
 				running = False
@@ -185,8 +193,8 @@ def main_loop():
 		clock.tick(FPS)
 
 
-#if __name__ == "__main__":
-# ===== Initialize the pygame =====
+
+#===== PROGRAM START =====
 pygame.init()
 
 # Create the screen
@@ -197,11 +205,10 @@ pygame.display.set_icon(icon)
 
 # Score Text
 font = pygame.font.Font('freesansbold.ttf', 32)
-
 lives_font = pygame.font.Font('freesansbold.ttf', 16)
 
 # Background
-background = pygame.image.load("background.png")
+background = asset_background
 
 # Background music
 mixer.music.load("background.wav")
